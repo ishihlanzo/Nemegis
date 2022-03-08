@@ -92,6 +92,8 @@ class Game:
                 self.player.rect.x -= SPEED
             if  195 <= self.player.rect.x <= 200 and 540 <= self.player.rect.y <= 700 :
                 self.player.rect.x += SPEED
+                if key[pygame.K_SPACE] :
+                    print('ça marche')
             if  700 <= self.player.rect.y <= 705 and 40 <= self.player.rect.x <= 200 :
                 self.player.rect.y += SPEED
             if  540 <= self.player.rect.y <= 545 and 40 <= self.player.rect.x <= 200 :
@@ -125,6 +127,8 @@ class Game:
     #maison 2
             if  640 <= self.player.rect.x <= 645 and 540 <= self.player.rect.y <= 700 :
                 self.player.rect.x -= SPEED
+                if key[pygame.K_SPACE] :
+                    print('ça marche')
             if  795 <= self.player.rect.x <= 800 and 540 <= self.player.rect.y <= 700 :
                 self.player.rect.x += SPEED
             if  700 <= self.player.rect.y <= 705 and 640 <= self.player.rect.x <= 800 :
@@ -149,7 +153,39 @@ class Game:
                 self.player.rect.y += SPEED
             if  140 <= self.player.rect.y <= 145 and 40+600 <= self.player.rect.x <= 200+600 :
                 self.player.rect.y -= SPEED
+    #maison 1
+            if  140 <= self.player.rect.x <= 145 and 40 <= self.player.rect.y <= 200 :
+                self.player.rect.x -= SPEED
+            if  295 <= self.player.rect.x <= 300 and 40 <= self.player.rect.y <= 200 :
+                self.player.rect.x += SPEED
+            if  40 <= self.player.rect.y <= 45 and 140 <= self.player.rect.x <= 300 :
+                self.player.rect.y -= SPEED
+            if  195 <= self.player.rect.y <= 200 and 140 <= self.player.rect.x <= 300 :
+                self.player.rect.y += SPEED
 
+    #maison 2
+            if  140+200 <= self.player.rect.x <= 145+200 and 40 <= self.player.rect.y <= 200 :
+                self.player.rect.x -= SPEED
+            if  295+200 <= self.player.rect.x <= 300+200 and 40 <= self.player.rect.y <= 200 :
+                self.player.rect.x += SPEED
+            if  40 <= self.player.rect.y <= 45 and 140+200 <= self.player.rect.x <= 300+200 :
+                self.player.rect.y -= SPEED
+            if  195 <= self.player.rect.y <= 200 and 140+200 <= self.player.rect.x <= 300+200 :
+                self.player.rect.y += SPEED
+                if key[pygame.K_SPACE] :
+                    print('ça marche')
+
+    #maison 3
+            if  140+400 <= self.player.rect.x <= 145+400 and 40 <= self.player.rect.y <= 200 :
+                self.player.rect.x -= SPEED
+            if  295+400 <= self.player.rect.x <= 300+400 and 40 <= self.player.rect.y <= 200 :
+                self.player.rect.x += SPEED
+            if  40 <= self.player.rect.y <= 45 and 140+400 <= self.player.rect.x <= 300+400 :
+                self.player.rect.y -= SPEED
+            if  195 <= self.player.rect.y <= 200 and 140+400 <= self.player.rect.x <= 300+400 :
+                self.player.rect.y += SPEED
+            
+    
         if self.temp%60 == 0 :
             print('------------------')
             print('x : ', self.player.rect.x)
