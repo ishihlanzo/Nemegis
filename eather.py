@@ -1,6 +1,7 @@
 import pygame
+import time
 
-def quest() :
+def glowstone() :
     FPS = 60
     SPEED = 5
     '''
@@ -10,6 +11,19 @@ def quest() :
     class Player:
         def __init__(self,x ,y) :
             self.image = pygame.image.load(f'Nemegis/texture/player.png')
+            self.rect = self.image.get_rect(x=x, y=y)
+            self.speed = SPEED
+            self.velocity = [0, 0]
+        
+        def move(self) :
+            self.rect.move_ip(self.velocity[0] * self.speed, self.velocity[1] * self.speed)
+
+        def draw(self, screen) :
+            screen.blit(self.image, self.rect)
+    
+    class Pnjeather:
+        def __init__(self,x ,y) :
+            self.image = pygame.image.load(f'Nemegis/texture/quest-eather.png')
             self.rect = self.image.get_rect(x=x, y=y)
             self.speed = SPEED
             self.velocity = [0, 0]
@@ -47,6 +61,8 @@ def quest() :
             self.background = Overworld(0,0)
             self.direction = 1
             self.temp=0
+            self.diag=Pnjeather(100,600)
+            self.affichage = False
             
         def handling_event(self):
             for event in pygame.event.get() :
@@ -93,6 +109,20 @@ def quest() :
                 print('y : ',self.player.rect.y)
                 print('------------------')
 
+            if  350 <= self.player.rect.x <= 365 and 355 <= self.player.rect.y <= 475 :
+                self.player.rect.x -= SPEED 
+            if  350-SPEED <= self.player.rect.x <= 365-SPEED and 355 <= self.player.rect.y <= 475 :
+                if key[pygame.K_f] :
+                    self.affichage = self.affichage ^ True
+                    time.sleep(0.2)
+            
+            if  480 <= self.player.rect.x <= 485 and 355 <= self.player.rect.y <= 475 :
+                self.player.rect.x += SPEED 
+            if  480+SPEED <= self.player.rect.x <= 485+SPEED and 355 <= self.player.rect.y <= 475 :
+                if key[pygame.K_f] :
+                    self.affichage = self.affichage ^ True
+                    time.sleep(0.2)
+
                 
 
 
@@ -103,9 +133,11 @@ def quest() :
             self.player.move()
 
         def display(self) :
-            self.screen.fill('black')
+
             self.background.draw(self.screen)
             self.player.draw(self.screen)
+            if self.affichage == True :
+                self.diag.draw(self.screen)
 
             pygame.display.flip()
 

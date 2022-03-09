@@ -1,5 +1,5 @@
 import pygame
-from quest1 import quest
+from eather import glowstone
 def map() :
     FPS = 60
     SPEED = 5
@@ -95,7 +95,7 @@ def map() :
                     self.player.rect.x += SPEED
                     if key[pygame.K_SPACE] :
                         print('ça marche')
-                        quest()
+                        glowstone()
                 if  700 <= self.player.rect.y <= 705 and 40 <= self.player.rect.x <= 200 :
                     self.player.rect.y += SPEED
                 if  540 <= self.player.rect.y <= 545 and 40 <= self.player.rect.x <= 200 :
@@ -204,7 +204,7 @@ def map() :
             self.player.move()
 
         def display(self) :
-            self.screen.fill('black')
+
             self.background.draw(self.screen)
             self.player.draw(self.screen)
 
